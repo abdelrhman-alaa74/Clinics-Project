@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Appointment extends Model
+{
+    protected $fillable = [
+        'App_name',
+        'App_email',
+        'date',
+        'time',
+        'doctor_id',
+        'department_id',
+    ];
+
+    public function doctor(){
+        return $this->belongsTo(Doctor::class);
+    }
+
+    public function department(){
+        return $this->belongsTo(Department::class);
+    }
+    
+}

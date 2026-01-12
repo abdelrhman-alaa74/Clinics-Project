@@ -1,0 +1,12 @@
+// Add this to routes/web.php in the appropriate section
+
+// V1 routes
+Route::prefix('v1')->name('v1.')->middleware('auth')->group(function () {
+    Route::middleware('permission:contacts.view')->group(function () {
+        Route::resource('contacts', ContactController::class);
+    });
+});
+
+// Don't forget to add the use statement at the top:
+// use App\Http\Controllers\Web\V1\ContactController;
+
